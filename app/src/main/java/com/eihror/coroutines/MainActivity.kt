@@ -23,9 +23,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         setContentView(R.layout.activity_main)
 
         mListPosts = arrayListOf()
-        progress = CustomProgressLayout(applicationContext)
+        progress = CustomProgressLayout(this).apply {}
 
         setupList()
+
     }
 
     override fun onResume() {

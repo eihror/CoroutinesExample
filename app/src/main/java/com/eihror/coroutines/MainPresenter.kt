@@ -18,7 +18,6 @@ class MainPresenter : BasePresenter<MainContract.View>(), MainContract.Presenter
         if (view != null) {
             scope.launch(Dispatchers.Main) {
                 view.showLoading(true)
-                delay(5_0000)
 
                 val response = RetrofitFactory.getPosts().await()
                 if (response.isSuccessful) {
