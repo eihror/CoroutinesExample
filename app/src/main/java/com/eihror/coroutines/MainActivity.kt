@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
-import com.eihror.coroutines.customView.CustomProgressLayout
 import com.eihror.coroutines.extensions.toast
 import com.eihror.coroutines.model.Post
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,14 +15,11 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     private val mPresenter: MainPresenter by lazy { MainPresenter() }
 
-    private lateinit var progress: CustomProgressLayout
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         mListPosts = arrayListOf()
-        progress = CustomProgressLayout(this).apply {}
 
         setupList()
 
@@ -56,7 +52,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun showLoading(show: Boolean) {
-        progress.show(show)
     }
 
     override fun onGetPosts(listPosts: List<Post>) {
